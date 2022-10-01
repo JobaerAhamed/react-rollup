@@ -4,7 +4,7 @@ Main goal of this repo is to try to bundle a full react ui, widget or otherwise 
 
 ## Development
 
-For development is 100% a CRA setup. Run `npm start` and start developing. Ejecting is fine to.
+For development is 100% a CRA setup. Run `npm start` and start developing.
 
 ## Bundling
 
