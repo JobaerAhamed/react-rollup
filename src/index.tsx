@@ -1,19 +1,35 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+const targetDivId = "cool-lib-root";
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+let reactRendered = false;
+
+function RenderReact(element: HTMLElement) {
+  const root = ReactDOM.createRoot(element);
+  if (!reactRendered) {
+    root.render(
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    );
+  }
+  reportWebVitals();
+  reactRendered = true;
+}
+
+(() => {
+  let targetDiv = document.getElementById(targetDivId);
+  if (targetDiv) {
+    RenderReact(targetDiv);
+  } else {
+    targetDiv = document.createElement("div");
+    targetDiv.id = targetDivId;
+    document.body.prepend(targetDiv);
+
+    RenderReact(targetDiv);
+  }
+})();

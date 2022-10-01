@@ -1,6 +1,21 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Main goal of this repo is to try to bundle a full react ui, widget or otherwise into a single bundle using rollup.
+
+## Development
+
+For development is 100% a CRA setup. Run `npm start` and start developing. Ejecting is fine to.
+
+## Bundling
+
+Run `npm run build:rollup` and it will bundle entire react app into a single js bundle. The JS bundle is self contained as it will create its mounting point if that was not present on the html where it was being called form. JS, CSS, SVG, Image src etc, all are bundled into the same bundle.
+
+For regular webpack bundle (many files, separate css, js etc), run `npm run build`. It will use the default CRA build.
+Or yuu can eject and customize it even further which is fine.
+
+## TS Path alias
+
+Currently it is not provided. let me know if its needed :)
 
 ## Available Scripts
 
